@@ -483,3 +483,6 @@ Both patterns use composition and an interface, so their class diagrams look sim
 | In QazRoute | `RoutePlanner` + `RouteStrategy` + five strategies | Would appear if we had several kinds of planners (e.g. `ExpressPlanner`, `FreightPlanner`) **and** several transport back-ends (road, rail, air) that vary independently |
 
 QazRoute uses only **one** varying dimension - *how a route is selected* - so Strategy is the right pattern.
+In Assignment 3, Notification.setSender() also swaps an object at runtime, but it connects two growing hierarchies 
+(Urgent/Encrypted/Batch × Telegram/Email/SMS) to avoid N×M classes. In QazRoute only one thing varies: the algorithm for choosing a route. 
+There is one context (RoutePlanner) with no subclasses, so Strategy fits, not Bridge.
